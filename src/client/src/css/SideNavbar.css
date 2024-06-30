@@ -1,0 +1,93 @@
+.side-navbar {
+  background-color: #4169E1;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.menu-bars {
+  margin-left: 1rem;
+  font-size: 2rem;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.menu-bars:hover {
+  color: #ffffff; 
+}
+
+.side-nav-menu {
+  background-color: #4169E1;
+  width: 280px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 450ms;
+}
+
+.side-nav-menu a:hover{
+  color: #ffffff;
+}
+
+.side-nav-menu.active {
+  left: 0;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 10px;
+  list-style: none;
+  height: 70px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 22px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 4px;
+  transition: background-color 250ms, color 250ms;
+}
+
+.nav-text a:hover {
+  background-color: #ffffff;
+  color: #4169E1;
+}
+
+.nav-text a:hover * {
+  color: #4169E1; /* Ensure child elements like icons also change color. */
+}
+
+.side-nav-menu-items {
+  width: 100%;
+  padding-top: 20px;
+}
+
+.side-navbar-toggle {
+  background-color: #4169E1;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.nav-text a span {
+  margin-left: 16px;
+  color: #ffffff;
+}
+

@@ -1,0 +1,79 @@
+services:
+  postgres:
+    image: "postgres:latest"
+    environment:
+      - POSTGRES_USER=postgres
+      - PGUSER=postgres
+      - POSTGRES_PASSWORD=postgres_password
+    networks:
+      - mynetwork
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    hostname: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=catsarecool
+      - PGADMIN_CONFIG_SERVER_MODE=False
+      - PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED=False
+      - PGADMIN_CONFIG_WTF_CSRF_CHECK_DEFAULT=False
+      - PGADMIN_CONFIG_WTF_CSRF_ENABLED=False
+
+    ports:
+      - "5050:80" 
+    networks:
+      - mynetwork
+
+  nginx:
+    depends_on:
+      - server
+      - client
+      - pgadmin
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "3050:80"
+    networks:
+      - mynetwork
+
+  server:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    build:
+      dockerfile: Dockerfile.dev
+      context: "./server"
+    environment:
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+    networks:
+      - mynetwork
+
+  client:
+    depends_on:
+      - server
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

@@ -1,0 +1,23 @@
+.active-courses {
+  background-color: #4169E1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 0 1 45%; /* Adjust the size */
+  margin-right: 20px;
+}
+
+.active-courses h3 {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: #555;
+}
+

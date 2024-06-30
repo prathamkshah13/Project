@@ -1,0 +1,55 @@
+.login-container {
+    color: #FFFFFF;
+    padding: 80px 0;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.login-container h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.login-container p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    margin-right: 4px;
+}
+
+.login-container form {
+    background-color: #8CA9FF;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.login-container form .form-group {
+    margin-bottom: 15px;
+}
+
+.login-container form .form-group label .label-text {
+    font-size: 20px;
+    padding-right: 4px;
+}
+
+.login-container form .form-control {
+    height: 40px;
+    border-radius: 5px;
+}
+
+.login-container form .btn {
+    background-color: #4169E1;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+}
+
+.login-container form .btn:hover {
+    background-color: #0056b3;
+}

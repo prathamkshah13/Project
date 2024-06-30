@@ -1,0 +1,33 @@
+/* Add your global styles here */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* Add some cool animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #E8F1F2;
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
